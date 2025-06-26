@@ -10,3 +10,11 @@ def analizar_gastos(df):
         "por_tipo": por_tipo
     }
 
+def filtrar_por_fecha(df, desde=None, hasta=None):
+    """Filtra el DataFrame por un rango de fechas opcional (ambos inclusive)."""
+    if desde:
+        df = df[df["Fecha"] >= pd.to_datetime(desde)]
+    if hasta:
+        df = df[df["Fecha"] <= pd.to_datetime(hasta)]
+    return df
+
