@@ -1,6 +1,6 @@
 # 🧾 Expense Analyzer
 
-Este proyecto es un analizador de gastos personales hecho en Python. Permite cargar un archivo CSV con tus gastos y obtener un resumen con estadísticas por categoría, visualizaciones simples y un reporte en Markdown.
+Este proyecto es un analizador de gastos personales hecho en Python. Permite cargar un archivo CSV con tus gastos y obtener un resumen con estadísticas por categoría y tipo, visualizaciones simples, filtros por fecha y un reporte en Markdown.
 
 Ideal para practicar estructuras, visualización de datos, modularización de código y control de versiones con Git.
 
@@ -9,11 +9,14 @@ Ideal para practicar estructuras, visualización de datos, modularización de c�
 ## 🚀 Características
 
 - 📂 Carga de gastos desde archivo CSV
+- 🗂️ Filtrado por rango de fechas
 - 📊 Agrupación de gastos por categoría
-- 📈 Visualización de gastos en gráficos de barras
+- 🧾 Agrupación por tipo de gasto (fijo/variable)
+- 📈 Visualización de gastos en gráficos de barras y tortas
 - 📝 Generación de reporte en formato Markdown
 - 🧪 Pruebas unitarias básicas
 - 🔧 Estructura modular y extensible
+- 💻 Ejecución desde consola con argumentos
 
 ---
 
@@ -24,11 +27,14 @@ gastos-analyzer/
 ├── data/                 # Archivos de entrada (CSV)
 ├── src/                  # Código fuente
 │   ├── loader.py         # Carga de CSV
-│   ├── processor.py      # Análisis de datos
+│   ├── processor.py      # Análisis de datos y filtros
 │   ├── visualizer.py     # Gráficos
 │   ├── reporter.py       # Generador de reporte
 │   └── main.py           # Punto de entrada principal
 ├── tests/                # Pruebas
+├── apps/                 # Dashboards interactivos
+│   ├── streamlit_app.py  # (próximamente)
+│   └── dash_app.py       # (opcional)
 ├── README.md             # Este archivo
 ├── requirements.txt      # Dependencias
 ├── .gitignore
@@ -43,7 +49,7 @@ gastos-analyzer/
 - pandas
 - matplotlib
 
-Podés instalar las dependencias con:
+Instalación de dependencias:
 
 ```bash
 pip install -r requirements.txt
@@ -51,50 +57,51 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Ejecución
-
-Desde la raíz del proyecto, ejecutá:
+## ▶️ Ejecución por consola
 
 ```bash
-python -m src.main
+python -m src.main [--desde YYYY-MM-DD] [--hasta YYYY-MM-DD]
 ```
 
-Esto cargará el archivo `data/gastos.csv`, procesará los datos y generará:
-- Un gráfico con los gastos por categoría
-- Un archivo `reporte.md` con el resumen
+### Ejemplos:
+
+- Sin filtro:
+  ```bash
+  python -m src.main
+  ```
+
+- Desde una fecha:
+  ```bash
+  python -m src.main --desde 2025-06-02
+  ```
+
+- Rango de fechas:
+  ```bash
+  python -m src.main --desde 2025-06-02 --hasta 2025-06-04
+  ```
 
 ---
 
-## 🧪 Tests
-
-Desde la raíz del proyecto podés correr los tests con:
-
-```bash
-python -m unittest tests/test_processor.py
-```
-
----
-
-## 📌 Ejemplo de entrada (`gastos.csv`)
+## 📌 Formato esperado del archivo `gastos.csv`
 
 ```csv
-Fecha,Categoría,Monto
-2025-06-01,Alquiler,50000
-2025-06-02,Comida,12000
-2025-06-03,Transporte,3000
-2025-06-04,Comida,8000
-2025-06-05,Entretenimiento,5000
+Fecha,Proveedor,Monto,Tipo de gasto,Categoría
+2025-06-01,Alquiler S.A.,50000,Fijo,Alquiler
+2025-06-02,Supermercado ABC,12000,Variable,Comida
+2025-06-03,Taxi CABA,3000,Variable,Transporte
+2025-06-04,Supermercado ABC,8000,Variable,Comida
+2025-06-05,Netflix,5000,Fijo,Entretenimiento
 ```
 
 ---
 
 ## 📈 Futuras mejoras
 
-- Filtros por fecha
+- Dashboard interactivo con Streamlit
 - Exportación a Excel
-- Clasificador automático de gastos
-- Dashboard interactivo con Plotly/Dash o Streamlit
+- Clasificador automático de categoría
 - Conexión con OCR y Google Sheets
+- Reportes por proveedor o mes
 
 ---
 
