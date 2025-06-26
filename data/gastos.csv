@@ -1,6 +1,6 @@
-Fecha,Categoría,Monto
-2025-06-01,Alquiler,50000
-2025-06-02,Comida,12000
-2025-06-03,Transporte,3000
-2025-06-04,Comida,8000
-2025-06-05,Entretenimiento,5000
+Fecha,Proveedor,Monto,Tipo de gasto,Categoría
+2025-06-01,Alquiler S.A.,50000,Fijo,Alquiler
+2025-06-02,Supermercado ABC,12000,Variable,Comida
+2025-06-03,Taxi CABA,3000,Variable,Transporte
+2025-06-04,Supermercado ABC,8000,Variable,Comida
+2025-06-05,Netflix,5000,Fijo,Entretenimiento
