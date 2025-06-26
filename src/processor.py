@@ -1,3 +1,5 @@
+import pandas as pd
+
 def analizar_gastos(df):
     # Agrupar por categoría
     por_categoria = df.groupby("Categoría")["Monto"].sum().sort_values(ascending=False)
