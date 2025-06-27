@@ -8,16 +8,16 @@ Ideal para practicar estructuras, visualización de datos, modularización de c�
 
 ## 🚀 Características
 
-- 📂 Carga de gastos desde archivo CSV local o subida vía interfaz Streamlit
+- 📂 Carga de gastos desde archivo CSV local o subida vía interfaz Streamlit o Dash
 - 📅 Filtrado por rango de fechas
-- 📂 Filtro interactivo por categoría
+- 📂 Filtro interactivo por categoría (con actualización dinámica)
 - 📊 Agrupación de gastos por categoría
 - 🧾 Agrupación por tipo de gasto (fijo/variable)
 - 📈 Visualización de gastos en gráficos de barras y tortas
 - 📝 Generación de reporte en formato Markdown
 - 🧪 Pruebas unitarias básicas
 - 🔧 Estructura modular y extensible
-- 💻 Ejecución desde consola con argumentos
+- 💻 Dos interfaces: consola, Streamlit y Dash
 
 ---
 
@@ -34,7 +34,8 @@ expense-analyzer/
 │   ├── reporter.py
 │   └── main.py
 ├── apps/                     # Dashboards interactivos
-│   └── streamlit_app.py
+│   ├── streamlit_app.py
+│   └── dash_app.py
 ├── utils/                    # Herramientas de prueba
 │   └── generador_datos.py   # Genera datos de ejemplo en CSV
 ├── tests/                    # Pruebas unitarias
@@ -52,6 +53,7 @@ expense-analyzer/
 - pandas
 - matplotlib
 - streamlit
+- dash
 
 Instalación de dependencias:
 
@@ -83,11 +85,26 @@ python -m src.main --desde 2025-06-02 --hasta 2025-06-04
 streamlit run apps/streamlit_app.py
 ```
 
-Funcionalidades disponibles:
+Funciones:
 
 - Filtros por fecha y categoría
-- Visualización de datos cargados o importados desde archivo CSV
-- Análisis y gráficos automáticos
+- Visualización de datos desde archivo local o CSV subido
+- Gráficos y tabla filtrada
+
+---
+
+## 📊 Dashboard Plotly Dash
+
+```bash
+python apps/dash_app.py
+```
+
+Funciones:
+
+- Carga de CSV dinámica (drag & drop)
+- Filtros actualizables por fecha y categoría
+- Visualización en gráfico de barras y torta
+- Tabla con datos filtrados
 
 ---
 
@@ -99,7 +116,7 @@ Podés crear un archivo CSV ficticio con 20 registros aleatorios:
 python utils/generador_datos.py
 ```
 
-Esto genera `data/gastos_test.csv` para que pruebes el sistema sin datos reales.
+Esto genera `data/gastos_test.csv` para probar sin datos reales.
 
 ---
 
@@ -113,16 +130,6 @@ Fecha,Proveedor,Monto,Tipo de gasto,Categoría
 2025-06-04,Supermercado ABC,8000,Variable,Comida
 2025-06-05,Netflix,5000,Fijo,Entretenimiento
 ```
-
----
-
-## 📈 Futuras mejoras
-
-- Dashboard alternativo con Plotly Dash
-- Exportación a Excel
-- Clasificador automático de categoría
-- Conexión con OCR y Google Sheets
-- Reportes por proveedor o mes
 
 ---
 
@@ -140,4 +147,4 @@ Desarrollado por Hernán Velázquez · [GitHub](https://github.com/azhernan)
 
 ## 🟢 Estado del proyecto
 
-✅ Funcional y en desarrollo activo
+✅ Funcional, con dashboards integrados y en evolución activa.
