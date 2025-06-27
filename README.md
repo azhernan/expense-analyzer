@@ -8,8 +8,9 @@ Ideal para practicar estructuras, visualización de datos, modularización de c�
 
 ## 🚀 Características
 
-- 📂 Carga de gastos desde archivo CSV
-- 🗂️ Filtrado por rango de fechas
+- 📂 Carga de gastos desde archivo CSV local o subida vía interfaz Streamlit
+- 📅 Filtrado por rango de fechas
+- 📂 Filtro interactivo por categoría
 - 📊 Agrupación de gastos por categoría
 - 🧾 Agrupación por tipo de gasto (fijo/variable)
 - 📈 Visualización de gastos en gráficos de barras y tortas
@@ -23,20 +24,22 @@ Ideal para practicar estructuras, visualización de datos, modularización de c�
 ## 📁 Estructura del proyecto
 
 ```
-gastos-analyzer/
-├── data/                 # Archivos de entrada (CSV)
-├── src/                  # Código fuente
-│   ├── loader.py         # Carga de CSV
-│   ├── processor.py      # Análisis de datos y filtros
-│   ├── visualizer.py     # Gráficos
-│   ├── reporter.py       # Generador de reporte
-│   └── main.py           # Punto de entrada principal
-├── tests/                # Pruebas
-├── apps/                 # Dashboards interactivos
-│   ├── streamlit_app.py  # (próximamente)
-│   └── dash_app.py       # (opcional)
-├── README.md             # Este archivo
-├── requirements.txt      # Dependencias
+expense-analyzer/
+├── data/                     # Archivos de entrada (CSV)
+│   └── gastos.csv            # Archivo principal
+├── src/                      # Código fuente
+│   ├── loader.py
+│   ├── processor.py
+│   ├── visualizer.py
+│   ├── reporter.py
+│   └── main.py
+├── apps/                     # Dashboards interactivos
+│   └── streamlit_app.py
+├── utils/                    # Herramientas de prueba
+│   └── generador_datos.py   # Genera datos de ejemplo en CSV
+├── tests/                    # Pruebas unitarias
+├── README.md
+├── requirements.txt
 ├── .gitignore
 └── LICENSE
 ```
@@ -48,6 +51,7 @@ gastos-analyzer/
 - Python 3.10+
 - pandas
 - matplotlib
+- streamlit
 
 Instalación de dependencias:
 
@@ -65,20 +69,37 @@ python -m src.main [--desde YYYY-MM-DD] [--hasta YYYY-MM-DD]
 
 ### Ejemplos:
 
-- Sin filtro:
-  ```bash
-  python -m src.main
-  ```
+```bash
+python -m src.main
+python -m src.main --desde 2025-06-02
+python -m src.main --desde 2025-06-02 --hasta 2025-06-04
+```
 
-- Desde una fecha:
-  ```bash
-  python -m src.main --desde 2025-06-02
-  ```
+---
 
-- Rango de fechas:
-  ```bash
-  python -m src.main --desde 2025-06-02 --hasta 2025-06-04
-  ```
+## 🖥️ Dashboard Streamlit
+
+```bash
+streamlit run apps/streamlit_app.py
+```
+
+Funcionalidades disponibles:
+
+- Filtros por fecha y categoría
+- Visualización de datos cargados o importados desde archivo CSV
+- Análisis y gráficos automáticos
+
+---
+
+## 🧪 Generar archivo de prueba
+
+Podés crear un archivo CSV ficticio con 20 registros aleatorios:
+
+```bash
+python utils/generador_datos.py
+```
+
+Esto genera `data/gastos_test.csv` para que pruebes el sistema sin datos reales.
 
 ---
 
@@ -97,7 +118,7 @@ Fecha,Proveedor,Monto,Tipo de gasto,Categoría
 
 ## 📈 Futuras mejoras
 
-- Dashboard interactivo con Streamlit
+- Dashboard alternativo con Plotly Dash
 - Exportación a Excel
 - Clasificador automático de categoría
 - Conexión con OCR y Google Sheets
@@ -119,4 +140,4 @@ Desarrollado por Hernán Velázquez · [GitHub](https://github.com/azhernan)
 
 ## 🟢 Estado del proyecto
 
-✅ Funcional y listo para extenderse
+✅ Funcional y en desarrollo activo

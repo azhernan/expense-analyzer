@@ -1,0 +1,21 @@
+Fecha,Proveedor,Monto,Tipo de gasto,Categoría
+2025-06-04,Clínica San José,15151,Variable,Salud
+2025-06-10,Farmacia Salud,3576,Fijo,Salud
+2025-06-10,Claro,11776,Fijo,Servicios
+2025-06-07,Uber,4927,Fijo,Transporte
+2025-06-14,Claro,11415,Variable,Servicios
+2025-06-15,Aysa,9103,Variable,Servicios
+2025-06-14,Platzi,6516,Variable,Educación
+2025-06-05,Spotify,12680,Fijo,Entretenimiento
+2025-06-09,Subte CABA,6945,Fijo,Transporte
+2025-06-02,Platzi,4981,Fijo,Educación
+2025-06-14,Subte CABA,12553,Variable,Transporte
+2025-06-09,Platzi,4641,Variable,Educación
+2025-06-03,Netflix,8809,Fijo,Entretenimiento
+2025-06-15,Supermercado La Esquina,9059,Variable,Comida
+2025-06-07,Subte CABA,18985,Variable,Transporte
+2025-06-04,Netflix,10010,Variable,Entretenimiento
+2025-06-12,Spotify,10863,Variable,Entretenimiento
+2025-06-16,Supermercado La Esquina,6891,Fijo,Comida
+2025-06-03,Platzi,2359,Fijo,Educación
+2025-06-15,Supermercado La Esquina,9835,Fijo,Comida
